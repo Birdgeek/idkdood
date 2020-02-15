@@ -1,24 +1,25 @@
 #!/bin/bash/
+clear
+echo -e "\n\nUpdating System\n\n"
 
-echo "Updating System"
 apt-get update
 apt-get upgrade
 apt-get dist-upgrades
 
-echo "Installing Webmin Pre-reqs"
+echo "\n\nInstalling Webmin Pre-reqs\n\n"
 
 apt-get install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
 
-echo "Downloading & Installing Webmin"
+echo "\n\nDownloading & Installing Webmin\n\n"
 
 wget http://prdownloads.sourceforge.net/webadmin/webmin_1.941_all.deb
 
 dpkg --install webmin_1.941_all.deb
 
-echo "Opening Webmin ports in UFW"
+echo "\n\nOpening Webmin ports in UFW\n\n"
 
 ufw allow 10000
 ufw status
 
-echo "Configuration complete, restarting"
+echo "\n\nConfiguration complete, restarting\n\n"
 
